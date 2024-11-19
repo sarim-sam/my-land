@@ -18,7 +18,7 @@ const TestimonialCard = ({ name, title, image, icon, quote }) => {
             alt={`${name}`}
             className="w-16 h-16 rounded-full shadow-[0_0_0_2px_#f8f9ff] transition-shadow duration-600 group-hover:shadow-[0_0_0_2px_white]"
           />
-        <div className="absolute -top-16 -right-8 w-16 h-16 rounded-full bg-white flex items-center justify-center transition-colors duration-300 group-hover:bg-black">
+        <div className="absolute -top-16 -right-8 w-16 h-16 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-black">
           <img
             src={icon}
             alt="icon"
