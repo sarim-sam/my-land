@@ -445,11 +445,16 @@ input {
   }
 }
 
-/* Apply animations to each testimonial card */
+.testimonial-card {
+  opacity: 1;
+  transform: translateX(0);
+  transition: none;
+}
+
 .testimonial-card.slide-next {
-  animation: slideLeft 0.5s ease-in-out;
+  animation: slideLeft 0.6s ease-in-out;
 }
 
 .testimonial-card.slide-prev {
-  animation: slideRight 0.5s ease-in-out;
+  animation: slideRight 0.6s ease-in-out;
 }
