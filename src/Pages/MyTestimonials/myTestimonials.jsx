@@ -97,8 +97,6 @@ const MyTestimonials = () => {
   <p className="poppins-bold text-center sm:text-left w-full sm:w-auto 2xl:text-40 xl:text-40 lg:text-40 md:text-3xl sm:text-3xl xs:text-3xl ls:text-3xl ms:text-3xl mb-4 sm:mb-0">
     What Our Client Said about us
   </p>
-  <p>Sa</p>
-
 
   {/* Navigation Buttons */}
   <div className="flex gap-4 sm:gap-6">
