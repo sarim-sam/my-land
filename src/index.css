@@ -418,30 +418,28 @@ input {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} 
+}
 .modal-body{
   z-index: 5999;
 }
 /* Define animations for sliding left and right */
 @keyframes slideLeft {
   from {
-    transform: translateX(100%);
+    transform: translateX(100%) scale(0.8);
     opacity: 0;
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes slideRight {
   from {
-    transform: translateX(-100%);
-    opacity: 0;
+    transform: translateX(-100%) scale(0.7);
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0) scale(1.1);
   }
 }
 
@@ -452,35 +450,9 @@ input {
 }
 
 .testimonial-card.slide-next {
-  animation: slideLeft 0.6s ease-in-out;
+  animation: slideLeft 0.5s ease-in-out;
 }
 
 .testimonial-card.slide-prev {
-  animation: slideRight 0.6s ease-in-out;
-}
-
-
-
-/* Keyframes for sliding left */
-@keyframes slideLeft {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Keyframes for sliding right */
-@keyframes slideRight {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  animation: slideRight 0.5s ease-in-out;
 }
