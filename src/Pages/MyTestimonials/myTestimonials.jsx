@@ -18,13 +18,13 @@ const TestimonialCard = ({ name, title, image, icon, quote }) => {
             alt={`${name}`}
             className="w-16 h-16 rounded-full shadow-[0_0_0_2px_#f8f9ff] transition-shadow duration-600 group-hover:shadow-[0_0_0_2px_white]"
           />
-        <div className="absolute -top-16 -right-8 w-16 h-16 rounded-full flex items-center justify-center transition-colors duration-300 group-hover:bg-black">
-          <img
-            src={icon}
-            alt="icon"
-            className="w-14 h-14 transition-transform duration-300"
-          />
-        </div>
+        <div className="absolute -top-16 -right-8 w-16 h-16 rounded-full flex items-center justify-center transition-colors duration-300">
+            <img
+              src={icon}
+              alt="icon"
+              className="w-14 h-14 transition-transform duration-300 group-hover:invert group-hover:brightness-0"
+            />
+          </div>
         </div>
         <div>
           <p className="text-28 md:text-28md sm:text-28sm xs:text-28sm ls:text-28sm ms:text-28sm poppins-semibold mb-2 transition-colors duration-600 group-hover:text-white">
@@ -44,20 +44,15 @@ const TestimonialCard = ({ name, title, image, icon, quote }) => {
 
 
 // Testimonials.
-export const Testimonials = ({ startIndex, direction, animatedIndex }) => {
+export const Testimonials = ({ startIndex, direction }) => {
   const visibleTestimonials = testimonials.slice(startIndex, startIndex + 3);
   return (
-  <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {visibleTestimonials.map((testimonial, index) => {
-        const animationClass =
-          index + startIndex === animatedIndex ? direction : "";
-
-        return (
-          <div key={index} className={`testimonial-card ${animationClass}`}>
-            <TestimonialCard {...testimonial} />
-          </div>
-        );
-      })}
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {visibleTestimonials.map((testimonial, index) => (
+        <div key={index} className={`testimonial-card ${direction}`}>
+          <TestimonialCard {...testimonial} />
+        </div>
+      ))}
     </div>
   );
 };
@@ -65,22 +60,17 @@ export const Testimonials = ({ startIndex, direction, animatedIndex }) => {
 // MyTestimonials.
 const MyTestimonials = () => {
   const [startIndex, setStartIndex] = useState(0);
-  const [animatedIndex, setAnimatedIndex] = useState(null);
   const [direction, setDirection] = useState('');
   const handleNext = () => {
     if (startIndex + 3 < testimonials.length) {
-      setAnimatedIndex(startIndex + 3);
       setDirection('slide-next');
       setStartIndex(startIndex + 1);
-      setTimeout(() => setAnimatedIndex(null), 500);
     }
   };
   const handlePrev = () => {
     if (startIndex > 0) {
-      setAnimatedIndex(startIndex - 1);
       setDirection('slide-prev');
       setStartIndex(startIndex - 1);
-      setTimeout(() => setAnimatedIndex(null), 500);
     }
   };
   return (
@@ -97,28 +87,34 @@ const MyTestimonials = () => {
   <img src="/decorator-second.png" className='absolute bottom-[-8rem] left-1/2 transform -translate-x-1/2'/>
   </div>
 
-  <div className="flex 2xl:h-28 flex-col lg:flex-row md:flex-col sm:flex-col xs:flex-col ls:flex-col ms:flex-col items-center justify-around w-full mx-2 sm:mx-4 mb-8 z-10 2xl:-mx-16">
+  {/* <div className="flex items-center w-full mx-2 sm:mx-4 mb-8 mt-12">
+  <p className="text-5xl sm:text-3xl md:text-5xl poppins-bold mr-auto py-8"> */}
+
+
+
+<div className="flex sxl:h-28 flex-col lg:flex-row md:flex-col sm:flex-col xs:flex-col ls:flex-col ms:flex-col items-center justify-around w-full mx-2 sm:mx-4 mb-8 z-10 2xl:-mx-16">
   {/* Heading */}
   <p className="poppins-bold text-center sm:text-left w-full sm:w-auto 2xl:text-40 xl:text-40 lg:text-40 md:text-3xl sm:text-3xl xs:text-3xl ls:text-3xl ms:text-3xl mb-4 sm:mb-0">
     What Our Client Said about us
   </p>
 
+
   {/* Navigation Buttons */}
   <div className="flex gap-4 sm:gap-6">
     {/* LEFT BUTTON */}
-    <button onClick={handlePrev} className="2xl:w-20 2xl:h-20 xl:w-20 xl:h-20 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 xs:w-16 xs:h-16 ls:w-16 ls:h-16 ms:w-16 ms:h-16 rounded-full bg-[#F8F9FF] hover:bg-[#f4f4fa] flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
+    <button onClick={handlePrev} className="2xl:w-20 2xl:h-20 xl:w-20 xl:h-20 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 xs:w-16 xs:h-16 ls:w-16 ls:h-16 ms:w-16 ms:h-16 rounded-full bg-[#F8F9FF] hover:bg-[#f4f4fa] flex items-center justify-center transform transition-transform duration-300 hover:scale-110 mr-4">
       <Icon icon={arrowLeft} width="40" height="40" className="text-[#836fff]" />
     </button>
 
     {/* RIGHT BUTTON */}
-    <button onClick={handleNext} className="2xl:w-20 2xl:h-20 xl:w-20 xl:h-20 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 xs:w-16 xs:h-16 ls:w-16 ls:h-16 ms:w-16 ms:h-16 rounded-full bg-[#684fff] hover:bg-[#836fff] flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
+    <button onClick={handleNext} className="2xl:w-20 2xl:h-20 xl:w-20 xl:h-20 lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-16 sm:h-16 xs:w-16 xs:h-16 ls:w-16 ls:h-16 ms:w-16 ms:h-16 rounded-full bg-[#684fff] hover:bg-[#836fff] flex items-center justify-center transform transition-transform duration-300 hover:scale-110 mr-4">
       <Icon icon={arrowRight} width="40" height="40" className="text-[#ffffff]" />
     </button>
   </div>
 </div>
 
       {/* Testimonials */}
-      <Testimonials startIndex={startIndex} direction={direction} animatedIndex={animatedIndex} />
+      <Testimonials startIndex={startIndex} direction={direction} />
     </div>
   );
 };

@@ -44,11 +44,11 @@
   font-style: normal;
 }
 
-.poppins-regular {
-  font-family: "Poppins", serif;
+/* .poppins-regular {
+  font-family: "Poppins" !important;
   font-weight: 400;
   font-style: normal;
-}
+} */
 
 .poppins-medium {
   font-family: "Poppins", serif;
@@ -457,4 +457,30 @@ input {
 
 .testimonial-card.slide-prev {
   animation: slideRight 0.6s ease-in-out;
+}
+
+
+
+/* Keyframes for sliding left */
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for sliding right */
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
