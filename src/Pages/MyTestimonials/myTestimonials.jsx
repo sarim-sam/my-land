@@ -75,7 +75,7 @@ const MyTestimonials = () => {
   };
   return (
     <div
-      className="relative w-full min-h-[55vh] bg-[#FFFFFF] overflow-hidden flex flex-col items-start justify-start mt-14">
+      className="relative w-full min-h-[637px] bg-[#FFFFFF] overflow-hidden flex flex-col items-start justify-start mt-14">
     <img
       src="/myGroup.png"
       alt="Background"
@@ -97,6 +97,7 @@ const MyTestimonials = () => {
   <p className="poppins-bold text-center sm:text-left w-full sm:w-auto 2xl:text-40 xl:text-40 lg:text-40 md:text-3xl sm:text-3xl xs:text-3xl ls:text-3xl ms:text-3xl mb-4 sm:mb-0">
     What Our Client Said about us
   </p>
+  <p>Sa</p>
 
 
   {/* Navigation Buttons */}
